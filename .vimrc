@@ -2,7 +2,7 @@ set nocompatible
 
 " Colors and Fonts {{{
 syntax on 
-colorscheme badwolf
+colorscheme onedark 
 set encoding=utf8
 " }}}
 
@@ -37,6 +37,11 @@ set cursorline
 set ruler
 set foldcolumn=0
 set laststatus=2
+" Disable Scrollbar
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
 " }}}
 
 " Configs {{{
@@ -81,4 +86,33 @@ nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 nnoremap <leader>s :mksession<CR>
+" }}}
+
+call plug#begin()
+Plug 'git@github.com:scrooloose/nerdtree.git'
+Plug 'pangloss/vim-javascript'
+Plug 'kien/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'Raimondi/delimitMate'
+call plug#end()
+
+" NerdTree {{{
+map <leader>nn :NERDTreeToggle<CR>
+" }}}
+
+" CtrlP {{{
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg|git)|node_modules$'
+let g:ctrlp_working_path_mode = 'ra'
+" }}}
+
+" EasyMotion {{{
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 " }}}
