@@ -18,14 +18,15 @@ let mapleader = ","
 
 " Spaces and Tabs {{{
 set tabstop=2
+set shiftwidth=2
 set softtabstop=2
 set expandtab
 
 set lbr
 set tw=50
 
-set ai
-set si
+set autoindent
+set smartindent
 set wrap
 " }}}
 
@@ -46,6 +47,8 @@ set guioptions-=L
 
 " Configs {{{
 set backspace=indent,eol,start
+filetype plugin on
+set autoread
 filetype indent on
 set wildmenu
 set lazyredraw
@@ -81,6 +84,7 @@ nnoremap gV `[v`]
 
 " Leader Shortcuts {{{
 nnoremap <leader>u :GundoToggle<CR>
+map <silent> <leader><cr> :noh<cr>
 
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -95,6 +99,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'Raimondi/delimitMate'
+Plug 'mhinz/vim-signify'
+Plug 'neomake/neomake'
 call plug#end()
 
 " NerdTree {{{
